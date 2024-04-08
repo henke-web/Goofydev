@@ -1,0 +1,372 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+p {
+    margin: 0 10px;
+}
+
+/* Grid Layout */
+.container {
+    /* Dimensions */
+    width: 100%;
+    height: 1500px;
+
+    /* Grid Layout */
+    display: grid;
+    grid-template-rows: 80px 80px 1fr 1fr 200px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas:
+      "header header"
+      "top-nav top-nav"
+      "content-1 content-1"
+      "content-2 content-3"
+      "footer footer";
+}
+
+/* Header */
+.header {
+    /* Grid Layout */
+    grid-area: header;
+
+    /* Flex Layout */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    /* Styling */
+    padding: 20px;
+    font-size: 0.875rem;
+}
+
+#logo {
+    width: 75px; /* Adjust as needed */
+    height: 75px; /* Adjust as needed */
+    margin-left: 10px; /* Add some space between the logo and the text */
+}
+
+/* Top Navigation */
+.top-nav {
+    /* Grid Layout */
+    grid-area: top-nav;
+
+    /* Flex Layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sidebarToggle {
+    /* Styling */
+    background-color: transparent;
+    color: #dec5c5;
+    text-decoration: none;
+    padding: 25px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 30px;
+
+    /* Transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    transition-delay: 0.2s; /* Delay of 0.2 seconds */
+
+}
+
+#sidebarToggle i {
+    /* Styling */
+    font-size: 24px;
+}
+
+#sidebarToggle:hover {
+    /* Transition */
+    transition-delay: 0s; /* No delay on hover */
+
+    /* Styling */
+    color: #ffffff;
+    background-color: #373e47;
+}
+
+#sidebarLogo {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    margin-bottom: 20px; /* Add some space between the logo and the close button */
+}
+
+#sidebarLogo {
+    filter: hue-rotate(180deg) saturate(150%) brightness(90%);
+}
+
+
+/* Menu List */
+.menu ul {
+    /* Flex Layout */
+    display: flex;
+    justify-content: start;
+
+    /* Styling */
+    list-style-type: none;
+    padding: 10px;
+    line-height: 30px;
+}
+
+.menu ul li {
+    /* Styling */
+    margin: 0 10px;
+}
+
+.menu ul li a {
+    /* Styling */
+    color: #dec5c5;
+    text-decoration: none;
+    padding: 25px;
+    border-radius: 10px;
+
+    /* Transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    transition-delay: 0.2s;
+}
+/* hover */
+.item.top-nav .menu ul li a:hover {
+    /* Transition */
+    transition-delay: 0s;
+
+    /* Styling */
+    color: #ffffff;
+    background-color: #373e47;
+}
+
+/* Sidebar */
+.sidebar {
+    /* Grid Layout */
+    grid-area: sidebar;
+
+    /* Positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    /* Dimensions */
+    width: 300px;
+    height: 100vh;
+
+    /* Transition */
+    transition: transform 0.3s ease-in-out;
+
+    /* Transform */
+    transform: translateX(-100%);
+
+    /* Styling */
+    background-color: #2d333b !important;
+
+    /* Flex Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.sidebar-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+}
+
+
+.sidebar ul {
+    /* Remove bullet points */
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    /* Modify size */
+    font-size: 18px; /* Adjust as needed */
+
+    /* Styling */
+    color: #dec5c5;
+    text-decoration: none;
+    padding: 25px;
+    display: block;
+    border-radius: 10px;
+
+    /* Transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    transition-delay: 0.2s;
+}
+
+.sidebar ul li a:hover {
+    /* Transition */
+    transition-delay: 0s; /* No delay on hover */
+
+    /* Styling */
+    color: #ffffff;
+    background-color: #373e47;
+}
+
+.sidebar.visible {
+    /* Transform */
+    transform: translateX(0);
+}
+
+/* Close Button */
+.close-btn {
+    /* Positioning */
+    position: relative;
+    right: 25px;
+
+    /* Dimensions */
+    width: 50px;
+    height: 50px;
+
+    /* Styling */
+    background-color: #22272e;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #c5d1de;
+
+    /* Interaction */
+    cursor: pointer;
+}
+
+.close-btn::before {
+    /* Content */
+    content: '\00D7';
+
+    /* Styling */
+    font-size: 30px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    color: #c5d1de;
+    border-radius: 5px;
+
+    /* Flex Layout */
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn:hover {
+    /* Styling */
+    background-color: #373e47;
+    border-radius: 5px;
+    padding: 10px;
+    right: 20px;
+    width: 50px;
+}
+
+.overlay {
+    /* Positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    /* Dimensions */
+    width: 100%;
+    height: 100vh;
+
+    /* Styling */
+    background-color: rgba(0, 0, 0, 0.3);
+
+    /* Visibility */
+    display: none;
+}
+
+/* Content */
+.content-1 {
+    grid-area: content-1;
+}
+
+.content-2 {
+    grid-area: content-2;
+}
+
+.content-3 {
+    grid-area: content-3;
+}
+
+/* Footer */
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c2128;
+}
+
+/* General Styles */
+body {
+    /* Styling */
+    background-color: #22272e;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    /* Flex Layout */
+    display: flex;
+    justify-content: center;
+}
+
+.item {
+    /* Styling */
+    background-color: #1c2128;
+    color: #c5d1de;
+    border-radius: 4px;
+    border: 1px solid #414953;
+    font-weight: bold;
+
+    /* Box Shadow */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+    /* Flex Layout */
+    display: flex;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .container {
+        /* Grid Layout */
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "header"
+          "top-nav"
+          "content-1"
+          "content-2"
+          "content-3"
+          "sidebar"
+          "footer";
+    }
+
+    .item, .header, .sidebar, .top-nav, .content-1, .content-2, .content-3, .footer {
+        /* Styling */
+        padding: 10px;
+    }
+}
+
+/* For Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #767676 /* Color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom right, #4d7fff 0%, #1a56ff 100%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scroll thumb on hover */
+}
+
+/* For Internet Explorer and Edge */
+body {
+    scrollbar-face-color: #888; /* Color of the scroll thumb */
+    scrollbar-track-color: #f1f1f1; /* Color of the tracking area */
+}
